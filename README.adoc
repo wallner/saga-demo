@@ -1,0 +1,14 @@
+= Sagas for Data Integrity in Distributed Systems
+
+This repository contains the source code for my presentation "Sagas für Datenintegrität in verteilten Systemen mit BPMN" ("Sagas for Data integrity in Distributed Systems").
+
+To run it you could run `./gradlew bootRun` that starts the local server at `localhost:8080`.
+To place an order the following can be used:
+
+[source,shell]
+----
+echo '{"customer": "Anton", "description": "Test", "price": {"amount":4.00, "currency":"EUR"}}' \
+| http post :8080/order
+----
+
+The slides for the talk can be found here: https://tinyurl.com/4vvedzu4 A link to a recording is going to be added as soon as one is available.
