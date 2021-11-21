@@ -1,9 +1,7 @@
 package org.balumba.sagademo.saga;
 
-import org.balumba.sagademo.business.order.Order;
 import org.balumba.sagademo.business.order.OrderDto;
 import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.delegate.VariableScope;
 import org.camunda.bpm.engine.runtime.ProcessInstanceWithVariables;
 import org.camunda.bpm.engine.variable.Variables;
 import org.camunda.bpm.engine.variable.value.ObjectValue;

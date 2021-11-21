@@ -15,15 +15,13 @@ public class CancelReservationAdapter implements JavaDelegate {
     final static Logger logger = LoggerFactory.getLogger(CancelReservationAdapter.class);
 
     private final CustomerService customerService;
-    private final OrderService orderService;
 
-    public CancelReservationAdapter(CustomerService customerService, OrderService orderService) {
+    public CancelReservationAdapter(CustomerService customerService) {
         this.customerService = customerService;
-        this.orderService = orderService;
     }
 
     @Override
-    public void execute(DelegateExecution context) throws Exception {
+    public void execute(DelegateExecution context) {
         var variables = new ProcessVariables(context);
 
         var orderId = variables.getOrderId().orElseThrow();

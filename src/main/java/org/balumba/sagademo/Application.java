@@ -2,8 +2,6 @@ package org.balumba.sagademo;
 
 import org.balumba.sagademo.business.customer.Customer;
 import org.balumba.sagademo.business.customer.CustomerRepository;
-import org.balumba.sagademo.business.order.Order;
-import org.balumba.sagademo.business.order.OrderRepository;
 import org.camunda.bpm.spring.boot.starter.annotation.EnableProcessApplication;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,11 +18,11 @@ public class Application {
     }
 
     @Bean
-    ApplicationRunner init(CustomerRepository customerRepository, OrderRepository orderRepository) {
-        return (ApplicationArguments args) -> dataSetup(customerRepository, orderRepository);
+    ApplicationRunner init(CustomerRepository customerRepository) {
+        return (ApplicationArguments args) -> dataSetup(customerRepository);
     }
 
-    public void dataSetup(CustomerRepository customerRepository, OrderRepository orderRepository) {
+    public void dataSetup(CustomerRepository customerRepository) {
         customerRepository.save(new Customer("Anton", "5 EUR"));
         customerRepository.save(new Customer("Berta", "10 EUR"));
         customerRepository.save(new Customer("Cesar", "100 EUR"));

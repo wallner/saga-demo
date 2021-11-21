@@ -21,9 +21,9 @@ public class CancelOrderAdapter implements JavaDelegate {
     }
 
     @Override
-    public void execute(DelegateExecution execution) throws Exception {
+    public void execute(DelegateExecution execution) {
         var processVariables = new ProcessVariables(execution);
-        var orderId = processVariables.getOrderId().orElseGet(() -> 0L);
+        var orderId = processVariables.getOrderId().orElse(0L);
 
         orderService.refuseOrder(orderId);
 

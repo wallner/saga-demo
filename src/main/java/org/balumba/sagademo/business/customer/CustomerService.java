@@ -2,13 +2,9 @@ package org.balumba.sagademo.business.customer;
 
 
 import org.balumba.sagademo.business.order.OrderRepository;
-import org.balumba.sagademo.business.order.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class CustomerService {

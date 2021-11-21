@@ -20,7 +20,7 @@ public class ReserveCreditAdapter implements JavaDelegate {
     }
 
     @Override
-    public void execute(DelegateExecution context) throws Exception {
+    public void execute(DelegateExecution context) {
         var variables = new ProcessVariables(context);
         var orderId = variables.getOrderId().orElseThrow();
 

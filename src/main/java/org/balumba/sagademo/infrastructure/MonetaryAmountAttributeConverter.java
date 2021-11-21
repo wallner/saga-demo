@@ -2,7 +2,6 @@ package org.balumba.sagademo.infrastructure;
 
 
 import org.javamoney.moneta.FastMoney;
-import org.javamoney.moneta.Money;
 
 import javax.money.MonetaryAmount;
 import javax.money.format.MonetaryAmountFormat;
@@ -10,6 +9,7 @@ import javax.money.format.MonetaryFormats;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.util.Locale;
+import java.util.Optional;
 
 @Converter(autoApply = true)
 public class MonetaryAmountAttributeConverter implements AttributeConverter<MonetaryAmount, String> {
@@ -18,7 +18,7 @@ public class MonetaryAmountAttributeConverter implements AttributeConverter<Mone
 
     @Override
     public String convertToDatabaseColumn(MonetaryAmount amount) {
-        return amount == null ? null : amount.toString();
+        return Optional.ofNullable(amount).map(Object::toString).orElse(null);
     }
 
     @Override

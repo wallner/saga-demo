@@ -1,7 +1,6 @@
 package org.balumba.sagademo.business.order;
 
 
-import com.fasterxml.jackson.annotation.JsonFilter;
 import org.balumba.sagademo.saga.OrderSaga;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 
 @RestController
@@ -31,14 +29,14 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<?> placeOrder(@RequestBody OrderDto order, HttpServletResponse response) {
+    public ResponseEntity<?> placeOrder(@RequestBody OrderDto order) {
         Long idOfNewOrder = orderSaga.placeOrder(order);
         return ResponseEntity.created(selfLink(idOfNewOrder)).build();
 
     }
 
     @GetMapping("/{orderId}")
-    public HttpEntity<?> findById(@PathVariable Long orderId, HttpServletResponse response) {
+    public HttpEntity<?> findById(@PathVariable Long orderId) {
         return service.findOrderById(orderId)
                 .map(this::buildEntity)
                 .orElseGet(() -> ResponseEntity.notFound().build());

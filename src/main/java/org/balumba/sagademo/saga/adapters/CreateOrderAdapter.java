@@ -9,8 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
-
 @Component
 public class CreateOrderAdapter implements JavaDelegate {
 
@@ -24,7 +22,7 @@ public class CreateOrderAdapter implements JavaDelegate {
     }
 
     @Override
-    public void execute(DelegateExecution context) throws InterruptedException {
+    public void execute(DelegateExecution context) {
         var variables = new ProcessVariables(context);
         var orderDtoOptional = variables.getReceivedOrder();
         var order = Order.fromDto(orderDtoOptional.orElseThrow());
