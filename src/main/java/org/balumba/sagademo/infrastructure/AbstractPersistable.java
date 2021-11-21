@@ -15,9 +15,9 @@ import java.io.Serializable;
 public class AbstractPersistable<PK extends Serializable> implements Persistable<PK> {
 
     @Id
+    @Nullable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Nullable
-    PK id;
+    private PK id;
 
     @Nullable
     @Override
