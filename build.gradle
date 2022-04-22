@@ -1,8 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.0'
+    id 'org.springframework.boot' version '2.6.7'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
+
+sourceCompatibility = '17'
 
 group = 'org.balumba.sagademo'
 version = '0.0.1-SNAPSHOT'
@@ -15,7 +17,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-    implementation(platform('org.camunda.bpm:camunda-bom:7.15.0'))
+    implementation(platform('org.camunda.bpm:camunda-bom:7.17.0'))
     implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest'
     implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp'
 
