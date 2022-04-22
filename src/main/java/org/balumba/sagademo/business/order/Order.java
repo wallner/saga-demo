@@ -48,7 +48,7 @@ public final class Order extends AbstractPersistable<Long> {
     }
 
     public static Order fromDto(OrderDto dto) {
-        return new Order(dto.getCustomer(), dto.getDescription(), dto.getPrice());
+        return new Order(dto.customer(), dto.description(), dto.price());
     }
 
     public String getCustomer() {
